@@ -1,119 +1,418 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pulso - Monitoreo de Condición Física</title>
-    <link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pulso: seguimiento físico y evolución de jugadores de fútbol en un solo lugar." />
+  <title>PULSO | El rendimiento se construye con datos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
+  <header class="site-header" id="inicio">
+    <a class="brand" href="#inicio" aria-label="Pulso, inicio">
+      <span class="brand-mark"><i></i><i></i><i></i></span>
+      <span>PULSO<span class="brand-dot">.</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <a href="#funciones-sistema">Funciones</a>
+      <a href="#acceso-panel">Panel y Registro</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="header-session" id="headerSession">
+      <span class="session-chip" id="sessionChip">Sin sesión activa</span>
+      <button type="button" class="outline-small hidden" id="btnLogout">Cerrar sesión</button>
+      <a class="header-cta" href="#acceso-panel" id="headerCta">Iniciar sesión <span>↗</span></a>
+    </div>
+  </header>
 
-    <header>
-        <div class="logo-text">PULSO<span>FIT</span></div>
-        <div style="color: #aaa; font-size: 14px;">Monitoreo de condición física · Fútbol</div>
-    </header>
-
-    <!-- Hero Section basado en tu prototipo -->
-    <section class="hero-section">
-        <div class="hero-tag">Monitoreo de condición física · Fútbol</div>
-        <h1 class="hero-title">El pulso de tu plantel, día a día.</h1>
-        <p class="hero-desc">
-            Registra el peso y la percepción de esfuerzo de cada jugador todos los días, 
-            suma las pruebas físicas semanales y consulta la evolución en un solo lugar.
-        </p>
-        <div class="hero-buttons">
-            <a href="#dashboard-container" class="btn-primary-smart">Registrar mi día</a>
-            <a href="#dashboard-container" class="btn-secondary-smart">Ver panel del cuerpo técnico</a>
+  <main>
+    <section class="hero">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span class="pulse-dot"></span> RENDIMIENTO DEPORTIVO · ENFOQUE EN DATOS</p>
+        <h1>EL RENDIMIENTO<br>NO SE <em>ADIVINA.</em><br>SE MIDE.</h1>
+        <p class="hero-copy">Cada jugador tiene una historia. Pulso reúne sus mediciones, esfuerzo y pruebas físicas para que el cuerpo técnico vea la evolución con claridad.</p>
+        <div class="hero-actions">
+          <a class="button button-lime" href="#acceso-panel">Ir al panel de registro y consulta <span>↘</span></a>
+          <a class="text-link" href="#funciones-sistema">Ver lista de funciones <span>→</span></a>
         </div>
+        <div class="hero-footnote">
+          <span class="mini-bars"><i></i><i></i><i></i><i></i><i></i></span>
+          <span>DATOS QUE IMPULSAN<br><b>MEJORES DECISIONES</b></span>
+        </div>
+      </div>
+      <div class="hero-index"><span>01</span><span class="index-line"></span><span>03</span></div>
+      <div class="hero-tag">CONTROL · EVOLUCIÓN · EQUIPO</div>
     </section>
 
-    <!-- Línea de pulso decorativa -->
-    <div class="pulse-line-container">
-        <svg class="pulse-svg" width="100%" height="40" viewBox="0 0 1000 40">
-            <path d="M0,20 L350,20 L370,5 L390,35 L410,10 L430,30 L450,20 L650,20 L670,0 L690,40 L710,15 L730,25 L750,20 L1000,20"></path>
-        </svg>
-    </div>
+    <!-- APARTADO DE FUNCIONES ENLISTADAS UNA DEBAJO DE LA OTRA -->
+    <section class="intro section-pad" id="funciones-sistema">
+      <div class="section-kicker">01 / FUNCIONES DEL SISTEMA</div>
+      <div class="intro-grid">
+        <h2>TODAS NUESTRAS<br>FUNCIONES, <span>PASO A PASO.</span></h2>
+        <div class="intro-text">
+          <p>Cada función está pensada para registrar y consultar el seguimiento físico del plantel de forma ordenada, con acceso previo y vistas diferenciadas por rol.</p>
+          <a class="underlined-link" href="#acceso-panel">Ir a iniciar sesión o registrar datos <span>↗</span></a>
+        </div>
+      </div>
 
-    <!-- Contenedor del Dashboard -->
-    <div id="dashboard-container" class="main-container">
-        
-        <!-- Registrar Jugador -->
-        <div class="card">
-            <h2>➕ Nuevo Fichaje (Jugador)</h2>
-            <form id="form-jugador">
-                <div class="form-group"><label>Nombre Completo</label><input type="text" id="j-nombre" required placeholder="Ej. Juan Quintero"></div>
-                <div class="form-group"><label>Posición</label><input type="text" id="j-posicion" required placeholder="Ej. Mediocampista"></div>
-                <div class="form-group"><label>Edad</label><input type="number" id="j-edad" required placeholder="20"></div>
-                <div class="form-group"><label>Número de Camiseta (Dorsal)</label><input type="number" id="j-dorsal" required placeholder="10"></div>
-                <button type="submit" class="btn-primary-smart" style="width: 100%; margin-top: 10px;">Guardar Jugador</button>
-            </form>
+      <ol class="functions-stack">
+        <li class="function-item">
+          <span class="fn-num">01</span>
+          <div class="fn-body">
+            <h3>Registro e inicio de sesión obligatorio</h3>
+            <p>Antes de registrar o consultar datos en el panel, el usuario debe crear una cuenta o iniciar sesión en la API.</p>
+          </div>
+        </li>
+        <li class="function-item">
+          <span class="fn-num">02</span>
+          <div class="fn-body">
+            <h3>Paneles diferenciados por rol (Entrenador, Jugador y Administrador)</h3>
+            <p>Cada rol accede a las opciones que le corresponden: registro y evolución personal para el Jugador, análisis y control del plantel para el Entrenador, y gestión de altas/supervisión para el Administrador.</p>
+          </div>
+        </li>
+        <li class="function-item">
+          <span class="fn-num">03</span>
+          <div class="fn-body">
+            <h3>Alta y consulta de jugadores del plantel</h3>
+            <p>Permite registrar jugadores con nombre, posición, dorsal y edad, además de filtrarlos rápidamente en la tabla.</p>
+          </div>
+        </li>
+        <li class="function-item">
+          <span class="fn-num">04</span>
+          <div class="fn-body">
+            <h3>Registro y consulta de mediciones físicas</h3>
+            <p>Guarda y muestra frecuencia cardíaca (BPM), nivel de fatiga/RPE (1–10) y velocidad máxima (km/h) con semáforo visual de fatiga.</p>
+          </div>
+        </li>
+        <li class="function-item">
+          <span class="fn-num">05</span>
+          <div class="fn-body">
+            <h3>Informes y análisis con Inteligencia Artificial (seudonimizado)</h3>
+            <p>Consolida métricas del jugador, oculta su identidad con un alias seudonimizado y genera clasificación y resumen de apoyo al cuerpo técnico.</p>
+          </div>
+        </li>
+        <li class="function-item">
+          <span class="fn-num">06</span>
+          <div class="fn-body">
+            <h3>Preguntas frecuentes, contacto por correo y canales sociales</h3>
+            <p>Resuelve dudas sobre privacidad y funcionamiento, ofrece formulario y correo de contacto directo, y enlaza las redes del proyecto.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="statement" id="seguimiento">
+      <div class="statement-image"></div>
+      <div class="statement-content">
+        <p class="section-kicker">02 / EL JUGADOR EN EL CENTRO</p>
+        <h2>ENTENDER LA<br>CARGA. CUIDAR<br><span>EL PROGRESO.</span></h2>
+        <p>Pulso permite dar seguimiento a las señales del entrenamiento sin perder de vista a la persona detrás de cada dato ni la privacidad de su información.</p>
+        <a class="button button-dark" href="#acceso-panel">Abrir panel principal <span>↗</span></a>
+        <div class="statement-note"><span>01 — 03</span><span>SEGUIMIENTO CONTINUO</span></div>
+      </div>
+    </section>
+
+    <!-- PANEL PRINCIPAL DE ACCESO, INSERCIÓN Y CONSULTA (AMPLIADO) -->
+    <section class="auth-section section-pad workspace-hero-section" id="acceso-panel">
+      <div class="demo-heading">
+        <div>
+          <p class="section-kicker">03 / INSERCIÓN Y CONSULTA DE DATOS</p>
+          <h2>PANEL PRINCIPAL<br><span>DE OPERACIÓN.</span></h2>
+        </div>
+        <p>Inicia sesión o crea tu cuenta para desbloquear el espacio amplio de registro y consulta de datos.</p>
+      </div>
+
+      <div class="auth-panel-box auth-panel-large" id="authBox">
+        <div class="auth-tabs" role="tablist">
+          <button type="button" class="auth-tab active" data-auth-tab="login">Iniciar sesión</button>
+          <button type="button" class="auth-tab" data-auth-tab="register">Crear cuenta</button>
         </div>
 
-        <!-- Registrar Medición -->
-        <div class="card">
-            <h2>📈 Registrar Medición Física</h2>
-            <form id="form-medicion">
-                <div class="form-group"><label>ID del Jugador</label><input type="number" id="m-jugador-id" required placeholder="1"></div>
-                <div class="form-group"><label>Frecuencia Cardíaca (BPM)</label><input type="number" id="m-fc" required placeholder="165"></div>
-                <div class="form-group"><label>Nivel de Fatiga (1-5)</label><input type="number" id="m-fatiga" required min="1" max="5" placeholder="3"></div>
-                <div class="form-group"><label>Velocidad Máxima (km/h)</label><input type="number" step="0.1" id="m-vel" required placeholder="28.5"></div>
-                <button type="submit" class="btn-primary-smart" style="width: 100%; margin-top: 10px;">Guardar Medición</button>
-            </form>
-        </div>
-
-        <!-- Registrar Prueba Física -->
-        <div class="card full-width">
-            <h2>⚡ Registrar Prueba Física</h2>
-            <form id="form-prueba">
-                <div class="form-group"><label>ID del Jugador</label><input type="number" id="p-jugador-id" required placeholder="1"></div>
-                <div class="form-group"><label>Tipo de Prueba</label><input type="text" id="p-tipo" required placeholder="Test de Cooper"></div>
-                <div class="form-group"><label>Resultado Numérico</label><input type="number" step="0.01" id="p-resultado" required placeholder="2800"></div>
-                <button type="submit" class="btn-primary-smart" style="width: 100%; margin-top: 10px;">Guardar Prueba</button>
-            </form>
-        </div>
-
-        <!-- Tablas de visualización -->
-        <div class="card full-width">
-            <h2>📋 Plantel Actual de Jugadores</h2>
-            <div class="table-responsive">
-                <table id="tabla-jugadores">
-                    <thead>
-                        <tr><th>ID</th><th>Dorsal</th><th>Nombre</th><th>Posición</th><th>Edad</th></tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+        <form id="loginForm" class="auth-form">
+          <p class="auth-sub">Ingresa con tu correo y contraseña registrados en Pulso.</p>
+          <div class="form-row">
+            <div>
+              <label for="loginEmail">Correo electrónico</label>
+              <input id="loginEmail" name="email" type="email" required placeholder="carlos@pulso.com">
             </div>
-        </div>
-
-        <div class="card full-width">
-            <h2>📊 Historial de Mediciones Físicas</h2>
-            <div class="table-responsive">
-                <table id="tabla-mediciones">
-                    <thead>
-                        <tr><th>Jugador</th><th>Frecuencia Cardíaca</th><th>Fatiga</th><th>Velocidad Máx</th><th>Fecha</th></tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+            <div>
+              <label for="loginPassword">Contraseña</label>
+              <input id="loginPassword" name="password" type="password" required placeholder="••••••••">
             </div>
-        </div>
+          </div>
+          <button class="button button-lime form-submit button-lg" type="submit">Iniciar sesión y abrir panel <span>↗</span></button>
+        </form>
 
-        <div class="card full-width">
-            <h2>⚡ Registro de Pruebas Físicas</h2>
-            <div class="table-responsive">
-                <table id="tabla-pruebas">
-                    <thead>
-                        <tr><th>Jugador</th><th>Tipo de Prueba</th><th>Resultado</th><th>Fecha</th></tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+        <form id="registerForm" class="auth-form hidden">
+          <p class="auth-sub">Crea tu cuenta y selecciona tu rol para acceder al panel adaptado a tus funciones.</p>
+          <div class="form-row">
+            <div>
+              <label for="regNombre">Nombre completo</label>
+              <input id="regNombre" name="nombre" type="text" required minlength="2" placeholder="Nombre del usuario">
             </div>
+            <div>
+              <label for="regRol">Rol en la plataforma</label>
+              <select id="regRol" name="rol">
+                <option value="Entrenador">Entrenador (Cuerpo técnico)</option>
+                <option value="Jugador">Jugador</option>
+                <option value="Administrador">Administrador</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="regEmail">Correo electrónico</label>
+              <input id="regEmail" name="email" type="email" required placeholder="correo@pulso.com">
+            </div>
+            <div>
+              <label for="regPassword">Contraseña (mín. 6 caracteres)</label>
+              <input id="regPassword" name="password" type="password" required minlength="6" placeholder="••••••••">
+            </div>
+          </div>
+          <button class="button button-lime form-submit button-lg" type="submit">Crear cuenta y desbloquear panel <span>↗</span></button>
+        </form>
+
+        <div class="auth-status-banner hidden" id="authActiveBanner">
+          <div>
+            <strong id="activeUserName">Usuario activo</strong>
+            <span id="activeUserMeta">Rol · Correo</span>
+          </div>
+          <button type="button" class="outline-small" id="btnSwitchUser">Cambiar cuenta</button>
+        </div>
+      </div>
+
+      <!-- BLOQUEADO HASTA INICIAR SESIÓN -->
+      <div id="lockedNotice" class="locked-card locked-card-large">
+        <div>
+          <h3>🔒 Panel de inserción y consulta bloqueado</h3>
+          <p>Debes iniciar sesión o crear una cuenta arriba antes de registrar mediciones, consultar el plantel o usar las funciones según tu rol.</p>
+        </div>
+        <a href="#authBox" class="button button-dark button-lg">Ir a iniciar sesión <span>↗</span></a>
+      </div>
+
+      <!-- PANEL DINÁMICO SEGÚN ROL (AMPLIADO) -->
+      <div class="demo-layout demo-layout-large hidden" id="appWorkspace">
+        <aside class="demo-sidebar">
+          <div class="demo-brand">
+            <span class="brand-mark"><i></i><i></i><i></i></span> PULSO<span class="demo-label" id="roleBadgeSidebar">ROL</span>
+          </div>
+          <p class="sidebar-label">MENÚ DE TU ROL</p>
+          <div id="roleSidebarNav"></div>
+          <div class="sidebar-bottom">
+            <span class="avatar" id="sidebarAvatar">US</span>
+            <div>
+              <b id="sidebarUserName">Usuario</b>
+              <small id="sidebarUserRole">Rol activo</small>
+            </div>
+          </div>
+        </aside>
+
+        <div class="demo-main demo-main-large">
+          <div class="demo-topline">
+            <div>
+              <span class="live-pill"><i></i> CONECTADO A PULSO API</span>
+              <h3 id="panelTitle">Panel</h3>
+              <p id="panelSubtitle">Vista adaptada a tu perfil.</p>
+            </div>
+            <div class="date-chip" id="roleChipTop">ROL <b>ACTIVO</b></div>
+          </div>
+
+          <div id="panelContent"></div>
+
+          <div class="demo-foot">
+            <span id="aiConnectionLabel">● Servicio IA listo</span>
+            <span>PULSO / INSERCIÓN Y CONSULTA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-tools demo-tools-large hidden" id="workspaceTools"></div>
+    </section>
+
+    <!-- INFORMACIÓN Y PREGUNTAS FRECUENTES (FAQ) -->
+    <section class="info-section section-pad" id="faq">
+      <div class="demo-heading">
+        <div>
+          <p class="section-kicker">04 / INFORMACIÓN Y PREGUNTAS FRECUENTES</p>
+          <h2>RESPUESTAS CLARAS.<br><span>SIN RODEOS.</span></h2>
+        </div>
+        <p>Consulta cómo funciona Pulso, qué puede hacer cada rol y cómo se protegen los datos de los deportistas.</p>
+      </div>
+
+      <div class="faq-grid">
+        <article class="faq-card">
+          <h3>¿Por qué se separa el panel entre Jugador, Entrenador y Administrador?</h3>
+          <p>Cada rol tiene necesidades distintas: el <strong>Jugador</strong> registra y consulta su evolución diaria; el <strong>Entrenador</strong> analiza el rendimiento del plantel y el informe con IA; y el <strong>Administrador</strong> gestiona el plantel y las cuentas del sistema.</p>
+        </article>
+        <article class="faq-card">
+          <h3>¿Cómo protege Pulso los datos físicos de los jugadores?</h3>
+          <p>Siguiendo los lineamientos de protección de datos (Ley 1581 de 2012 / Habeas Data), las contraseñas se almacenan cifradas y el servicio de IA recibe métricas agregadas y seudonimizadas sin exponer datos personales identificables.</p>
+        </article>
+        <article class="faq-card">
+          <h3>¿La Inteligencia Artificial reemplaza al preparador físico o médico?</h3>
+          <p>No. La clasificación (<em>normal, alerta, riesgo</em>) y el resumen en lenguaje natural son un apoyo orientativo para agilizar la lectura del cuerpo técnico, nunca un diagnóstico médico.</p>
+        </article>
+        <article class="faq-card">
+          <h3>¿Qué datos se registran en el seguimiento diario?</h3>
+          <p>Se registran variables clave como frecuencia cardíaca (BPM), nivel de fatiga/RPE y velocidad máxima (km/h), además de pruebas físicas y anotaciones del cuerpo técnico.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACTO, GMAIL Y REDES SOCIALES -->
+    <section class="contact-section section-pad" id="contacto">
+      <div class="demo-heading">
+        <div>
+          <p class="section-kicker">05 / CONTACTO Y COMUNIDAD</p>
+          <h2>HABLEMOS DEL<br><span>PROYECTO PULSO.</span></h2>
+        </div>
+        <p>Canales de contacto académico y redes de referencia del proyecto de Arquitectura de Software.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="data-card contact-box">
+          <h3>Contacto directo por Gmail / Correo</h3>
+          <p class="auth-sub">Escríbenos para soporte técnico, dudas académicas o retroalimentación sobre la plataforma.</p>
+          <p class="contact-email-line">
+            <strong>Correo de contacto:</strong>
+            <a href="mailto:jsebasq120@gmail.com">jsebasq120@gmail.com</a>
+          </p>
+          <form id="contactForm" class="contact-form">
+            <div class="form-row">
+              <div>
+                <label for="cNombre">Tu nombre</label>
+                <input id="cNombre" name="nombre" type="text" required placeholder="Ej. Carlos Gómez">
+              </div>
+              <div>
+                <label for="cCorreo">Tu correo (Gmail u otro)</label>
+                <input id="cCorreo" name="correo" type="email" required placeholder="ejemplo@gmail.com">
+              </div>
+            </div>
+            <label for="cMensaje">Mensaje</label>
+            <textarea id="cMensaje" name="mensaje" rows="3" required placeholder="Escribe tu consulta o comentario sobre Pulso..."></textarea>
+            <button type="submit" class="button button-lime form-submit">Enviar mensaje de contacto <span>↗</span></button>
+          </form>
         </div>
 
-    </div>
+        <div class="data-card socials-box">
+          <h3>Redes sociales y canales</h3>
+          <p class="auth-sub">Espacios de difusión y seguimiento del proyecto (canales de referencia).</p>
+          <ul class="social-list">
+            <li>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                <span>Instagram · @pulsofit.arqui</span>
+                <span>↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                <span>X / Twitter · @pulso_deporte</span>
+                <span>↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                <span>YouTube · Pulso Demos y Arquitectura</span>
+                <span>↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                <span>LinkedIn · Pulso Software Engineering</span>
+                <span>↗</span>
+              </a>
+            </li>
+          </ul>
+          <div class="extra-tip-box">
+            <strong>Novedades rápidas incluidas:</strong>
+            <p>Semáforo visual de fatiga en las tablas, buscador instantáneo de jugadores y acceso rápido a análisis IA para entrenadores.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Scripts enlazados siguiendo la estructura modular -->
-    <script src="./js/models.js"></script>
-    <script src="./js/controllers.js"></script>
-    <script src="./js/app.js"></script>
+    <section class="closing-cta">
+      <div>
+        <p class="section-kicker">PULSO · SEGUIMIENTO DEPORTIVO</p>
+        <h2>LOS DATOS SON EL<br>INICIO DEL <em>PROGRESO.</em></h2>
+      </div>
+      <a href="#acceso-panel" class="round-arrow" aria-label="Ir al panel">↗</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#inicio">
+      <span class="brand-mark"><i></i><i></i><i></i></span>
+      <span>PULSO<span class="brand-dot">.</span></span>
+    </a>
+    <p>Seguimiento físico para tomar mejores decisiones · jsebasq120@gmail.com</p>
+    <span>PROYECTO DE ARQUITECTURA DE SOFTWARE · 2026</span>
+  </footer>
+
+  <!-- Modal Medición -->
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button type="button" class="modal-close" id="closeModal" aria-label="Cerrar">×</button>
+      <p class="section-kicker">REGISTRO EN BASE DE DATOS</p>
+      <h2 id="modalTitle">Nueva medición</h2>
+      <p class="modal-intro">Completa los datos para guardar la medición en la base de datos.</p>
+      <form id="measurementForm">
+        <label for="mJugadorSelect">Jugador</label>
+        <select id="mJugadorSelect" name="jugador_id" required></select>
+        <div class="form-row">
+          <div>
+            <label for="mFc">Frecuencia cardíaca (BPM)</label>
+            <input id="mFc" name="frecuencia_cardiaca" type="number" min="35" max="230" required placeholder="165">
+          </div>
+          <div>
+            <label for="mFatiga">Fatiga / RPE (1–10)</label>
+            <input id="mFatiga" name="fatiga_nivel" type="number" min="1" max="10" required placeholder="6">
+          </div>
+        </div>
+        <label for="mVel">Velocidad máxima (km/h)</label>
+        <input id="mVel" name="velocidad_maxima" type="number" min="0" max="45" step="0.1" required placeholder="29.5">
+        <button class="button button-lime form-submit" type="submit">Guardar medición <span>↗</span></button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Modal Nuevo Jugador -->
+  <div class="modal-backdrop" id="playerModalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="playerModalTitle">
+      <button type="button" class="modal-close" id="closePlayerModal" aria-label="Cerrar">×</button>
+      <p class="section-kicker">GESTIÓN DE PLANTEL</p>
+      <h2 id="playerModalTitle">Nuevo jugador</h2>
+      <p class="modal-intro">Registra un jugador en la tabla JUGADOR.</p>
+      <form id="playerForm">
+        <label for="jNombre">Nombre completo</label>
+        <input id="jNombre" name="nombre" type="text" required placeholder="Ej. Luis Díaz">
+        <div class="form-row">
+          <div>
+            <label for="jPosicion">Posición</label>
+            <input id="jPosicion" name="posicion" type="text" required placeholder="Extremo">
+          </div>
+          <div>
+            <label for="jDorsal">Dorsal</label>
+            <input id="jDorsal" name="numero_camiseta" type="number" min="1" max="99" required placeholder="7">
+          </div>
+        </div>
+        <label for="jEdad">Edad</label>
+        <input id="jEdad" name="edad" type="number" min="10" max="50" required placeholder="24">
+        <button class="button button-lime form-submit" type="submit">Guardar jugador <span>↗</span></button>
+      </form>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="./js/models.js"></script>
+  <script src="./js/controllers.js"></script>
+  <script src="./js/app.js"></script>
 </body>
 </html>
